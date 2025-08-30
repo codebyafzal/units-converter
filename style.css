@@ -69,15 +69,15 @@ body {
     font-size: 1.7rem;
     font-weight: 300;
     cursor: pointer;
+    transition: transform 0.5s;
 }
 
 #reverse-icon i {
     transform: rotate(90deg);
-    transition: transform 0.5s;
 }
 
 .rotate {
-    transform: rotate(270deg);
+    transform: rotate(180deg);
 }
 
 #from {
