@@ -133,6 +133,33 @@ document.addEventListener('DOMContentLoaded', function() {
       toInput.value = parseFloat(result.toFixed(9));
     }
 
+    // Hour to All Units
+    if(fromSelect.value === "hour" && toSelect.value === "millisecond") {
+      result = toValue * 3600000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "hour" && toSelect.value === "second") {
+      result = toValue * 3600;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "hour" && toSelect.value === "minute") {
+      result = toValue * 60;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "hour" && toSelect.value === "hour") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "hour" && toSelect.value === "day") {
+      result = toValue / 24;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "hour" && toSelect.value === "week") {
+      result = toValue / 168;
+      toInput.value = parseFloat(result.toFixed(6));
+    } else if(fromSelect.value === "hour" && toSelect.value === "month") {
+      result = toValue / 730;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "hour" && toSelect.value === "year") {
+      result = toValue / 8760;
+      toInput.value = parseFloat(result.toFixed(8));
+    }
+
 
   }
 
