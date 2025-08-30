@@ -190,3 +190,7 @@ input::placeholder {
 .button:hover {
     transform: scale(1.1);
 }
+
+.error {
+    color: rgb(255, 95, 95);
+}
