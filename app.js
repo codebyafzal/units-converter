@@ -79,6 +79,34 @@ document.addEventListener('DOMContentLoaded', function() {
       toInput.value = parseFloat(result.toFixed(10));
     }
 
+    // Millisecond to All Units
+
+    if(fromSelect.value === "millisecond" && toSelect.value === "millisecond") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "second") {
+      result = toValue / 1000;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "minute") {
+      result = toValue / 60000;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "hour") {
+      result = toValue / 3600000;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "day") {
+      result = toValue / 86400000;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "week") {
+      result = toValue / 604800000;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "month") {
+      result = toValue / 2628000000;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "millisecond" && toSelect.value === "year") {
+      result = toValue / 31540000000;
+      toInput.value = parseFloat(result.toFixed(10));
+    }
+
     
 
   }
