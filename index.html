@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Units Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="main-content">
+        <h1 id="heading">Converter</h1>
+        <div class="unit-input">
+            <p id="from">From :</p>
+            <div class="top-unit-input">
+                <select name="time-units" id="time">
+                    <option value="second" selected>Second</option>
+                    <option value="millisecond">Millisecond</option>
+                    <option value="minute">Minute</option>
+                    <option value="hour">Hour</option>
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                </select>
+                <input type="text" placeholder="Input value here">
+            </div>
+            <div id="reverse-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+            <p id="to">To :</p>
+            <div class="bottom-unit-input">
+                <select name="time-units" id="time">
+                    <option value="second">Second</option>
+                    <option value="millisecond">Millisecond</option>
+                    <option value="minute" selected>Minute</option>
+                    <option value="hour">Hour</option>
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                </select>
+                <input type="text" id="to-input" readonly>
+            </div>
+        </div>
+        <div class="units-btn">
+            <button id="time" class="button">Time</button>
+            <button id="length" class="button">Length</button>
+            <button id="tenmperature" class="button">Temperature</button>
+            <button id="weight" class="button">Weight</button>
+        </div>
+
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
