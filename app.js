@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Millisecond to All Units
-
     if(fromSelect.value === "millisecond" && toSelect.value === "millisecond") {
       result = toValue;
       toInput.value = parseFloat(result.toFixed(7));
@@ -107,7 +106,33 @@ document.addEventListener('DOMContentLoaded', function() {
       toInput.value = parseFloat(result.toFixed(10));
     }
 
-    
+    // Minute to All Units
+    if(fromSelect.value === "minute" && toSelect.value === "millisecond") {
+      result = toValue * 60000;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "minute" && toSelect.value === "second") {
+      result = toValue * 60;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "minute" && toSelect.value === "minute") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(7));
+    } else if(fromSelect.value === "minute" && toSelect.value === "hour") {
+      result = toValue / 60;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "minute" && toSelect.value === "day") {
+      result = toValue / 1440;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "minute" && toSelect.value === "week") {
+      result = toValue / 10080;
+      toInput.value = parseFloat(result.toFixed(10));
+    } else if(fromSelect.value === "minute" && toSelect.value === "month") {
+      result = toValue / 43800;
+      toInput.value = parseFloat(result.toFixed(9));
+    } else if(fromSelect.value === "minute" && toSelect.value === "year") {
+      result = toValue / 525600;
+      toInput.value = parseFloat(result.toFixed(9));
+    }
+
 
   }
 
