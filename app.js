@@ -271,18 +271,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
-  // Prevent to type any Alphabets
+  // Prevent to type Alphabets and Operator in Input...
   input.addEventListener("keypress", function(e) {
-    if((e.key >= "a" && e.key <= "z") || (e.key >= "A" && e.key <= "Z")) {
-      e.preventDefault();
-    }
-  })
 
-  // Prevent to type any Operators
-  input.addEventListener("keypress", function(e) {
-    if(!/[0-9]/.test(e.key)) {
-      e.preventDefault();
-    }
+    // Allow Numbers
+    if(/[0-9]/.test(e.key)) return;
+
+    // Allow 1 period if none available
+    if(e.key === "." && !this.value.includes(".")) return;
+
+    // Prevent everything else
+    e.preventDefault();
+
   })
 
   setInterval(() => {
