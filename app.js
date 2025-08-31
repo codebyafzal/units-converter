@@ -633,6 +633,124 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
+  function convertWeight() {
+
+    let toValue = parseFloat(input.value);
+
+    if(isNaN(toValue)) {
+      result = "Error";
+      toInput.classList.add("error");
+      toInput.textContent = result;
+    } else {
+      toInput.classList.remove("error");
+    }
+
+    // Milligram to all units
+    if(fromSelect.value === "milligram" && toSelect.value === "milligram") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "milligram" && toSelect.value === "gram") {
+      result = toValue / 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "milligram" && toSelect.value === "kilogram") {
+      result = toValue / 1000000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "milligram" && toSelect.value === "pound") {
+      result = toValue / 453592;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "milligram" && toSelect.value === "ounce") {
+      result = toValue / 28349.5;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "milligram" && toSelect.value === "carrat") {
+      result = toValue / 200;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Gram to all units
+    if(fromSelect.value === "gram" && toSelect.value === "milligram") {
+      result = toValue * 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "gram" && toSelect.value === "gram") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "gram" && toSelect.value === "kilogram") {
+      result = toValue / 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "gram" && toSelect.value === "pound") {
+      result = toValue / 453.592;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "gram" && toSelect.value === "ounce") {
+      result = toValue / 28.3495;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "gram" && toSelect.value === "carrat") {
+      result = toValue * 5;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Kilogram to all units
+    if(fromSelect.value === "kilogram" && toSelect.value === "milligram") {
+      result = toValue * 1000000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilogram" && toSelect.value === "gram") {
+      result = toValue * 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilogram" && toSelect.value === "kilogram") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilogram" && toSelect.value === "pound") {
+      result = toValue * 2.2046;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilogram" && toSelect.value === "ounce") {
+      result = toValue * 35.274;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilogram" && toSelect.value === "carrat") {
+      result = toValue * 5000;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Pound to all units
+    if(fromSelect.value === "pound" && toSelect.value === "milligram") {
+      result = toValue * 453592;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "pound" && toSelect.value === "gram") {
+      result = toValue * 453.592;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "pound" && toSelect.value === "kilogram") {
+      result = toValue * 0.453592;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "pound" && toSelect.value === "pound") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "pound" && toSelect.value === "ounce") {
+      result = toValue * 16;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "pound" && toSelect.value === "carrat") {
+      result = toValue * 2267.96;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Carrat to all units
+    if(fromSelect.value === "carrat" && toSelect.value === "milligram") {
+      result = toValue * 200;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "carrat" && toSelect.value === "gram") {
+      result = toValue * 0.2;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "carrat" && toSelect.value === "kilogram") {
+      result = toValue * 0.0002;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "carrat" && toSelect.value === "pound") {
+      result = toValue * 0.0004409249;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "carrat" && toSelect.value === "ounce") {
+      result = toValue * 0.0070547981;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "carrat" && toSelect.value === "carrat") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+  }
+
   // Prevent to type Alphabets and Operator in Input...
   input.addEventListener("keypress", function(e) {
 
@@ -657,6 +775,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(() => {
     convertTemperature();
+  }, 100);
+
+  setInterval(() => {
+    convertWeight();
   }, 100);
 
     
