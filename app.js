@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     convertWeight();
   })
 
-
+  // Time function
   function convertTime() {
 
     let toValue = parseFloat(input.value);
@@ -352,6 +352,237 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
+  // Length Function;
+  function convertLength() {
+
+    let toValue = parseFloat(input.value);
+
+    if(isNaN(toValue)) {
+      result = "Error";
+      toInput.classList.add("error");
+      toInput.textContent = result;
+    } else {
+      toInput.classList.remove("error");
+    }
+
+    // Millimeter to all Units
+    if(fromSelect.value === "millimeter" && toSelect.value === "millimeter") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "centimeter") {
+      result = toValue / 10;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "meter") {
+      result = toValue / 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "kilometer") {
+      result = toValue / 1000000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "inch") {
+      result = toValue / 25.4;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "foot") {
+      result = toValue / 304.8;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "mile") {
+      result = toValue / 1609344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "millimeter" && toSelect.value === "yard") {
+      result = toValue / 914.4;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Centimeter to all Units
+    if(fromSelect.value === "centimeter" && toSelect.value === "millimeter") {
+      result = toValue * 10;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "centimeter") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "meter") {
+      result = toValue / 100;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "kilometer") {
+      result = toValue / 100000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "inch") {
+      result = toValue / 2.54;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "foot") {
+      result = toValue / 30.48;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "mile") {
+      result = toValue / 160934;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "centimeter" && toSelect.value === "yard") {
+      result = toValue / 91.44;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Meter to all Units
+    if(fromSelect.value === "meter" && toSelect.value === "millimeter") {
+      result = toValue * 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "centimeter") {
+      result = toValue * 100;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "meter") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "kilometer") {
+      result = toValue / 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "inch") {
+      result = toValue * 39.37;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "foot") {
+      result = toValue * 3.281;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "mile") {
+      result = toValue / 1609.344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "meter" && toSelect.value === "yard") {
+      result = toValue * 1.0936;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Kilometer to all Units
+    if(fromSelect.value === "kilometer" && toSelect.value === "millimeter") {
+      result = toValue * 1000000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "centimeter") {
+      result = toValue * 100000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "meter") {
+      result = toValue * 1000;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "kilometer") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "inch") {
+      result = toValue * 39370;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "foot") {
+      result = toValue * 3280.83;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "mile") {
+      result = toValue / 1.609344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "kilometer" && toSelect.value === "yard") {
+      result = toValue * 1093.61;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Inch to all Units
+    if(fromSelect.value === "inch" && toSelect.value === "millimeter") {
+      result = toValue * 25.4;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "centimeter") {
+      result = toValue * 2.54;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "meter") {
+      result = toValue / 39.37;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "kilometer") {
+      result = toValue / 39370.07;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "inch") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "foot") {
+      result = toValue / 12;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "mile") {
+      result = toValue / 63360;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "inch" && toSelect.value === "yard") {
+      result = toValue / 36;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Foot to all Units
+    if(fromSelect.value === "foot" && toSelect.value === "millimeter") {
+      result = toValue * 304.8;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "centimeter") {
+      result = toValue * 30.48;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "meter") {
+      result = toValue / 3.281;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "kilometer") {
+      result = toValue / 3280.83;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "inch") {
+      result = toValue * 12;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "foot") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "mile") {
+      result = toValue / 5280;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "foot" && toSelect.value === "yard") {
+      result = toValue / 3;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Mile to all Units
+    if(fromSelect.value === "mile" && toSelect.value === "millimeter") {
+      result = toValue * 1609344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "centimeter") {
+      result = toValue * 160934;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "meter") {
+      result = toValue * 1609.344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "kilometer") {
+      result = toValue * 1609.344;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "inch") {
+      result = toValue * 63360;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "foot") {
+      result = toValue * 5280;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "mile") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "mile" && toSelect.value === "yard") {
+      result = toValue * 1760;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+    // Yard to all Units
+    if(fromSelect.value === "yard" && toSelect.value === "millimeter") {
+      result = toValue * 914.4;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "centimeter") {
+      result = toValue * 91.44;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "meter") {
+      result = toValue / 1.0936;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "kilometer") {
+      result = toValue / 1093.61;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "inch") {
+      result = toValue * 36;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "foot") {
+      result = toValue * 3;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "mile") {
+      result = toValue / 1760;
+      toInput.value = parseFloat(result.toFixed(5));
+    } else if(fromSelect.value === "yard" && toSelect.value === "yard") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(5));
+    }
+
+  }
+
   // Prevent to type Alphabets and Operator in Input...
   input.addEventListener("keypress", function(e) {
 
@@ -368,9 +599,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(() => {
     convertTime();
+  }, 100);
+
+  setInterval(() => {
     convertLength();
-    convertTemperature();
-    convertWeight();
   }, 100);
 
     
