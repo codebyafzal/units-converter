@@ -271,6 +271,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
+  // Prevent to type any Alphabets
+  input.addEventListener("keypress", function(e) {
+    if((e.key >= "a" && e.key <= "z") || (e.key >= "A" && e.key <= "Z")) {
+      e.preventDefault();
+    }
+  })
+
+  // Prevent to type any Operators
+  input.addEventListener("keypress", function(e) {
+    if(!/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
+  })
+
   setInterval(() => {
     convertTime();
   }, 100);
