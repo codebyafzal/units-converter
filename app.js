@@ -13,6 +13,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let result;
 
+  const units = {
+    time: [
+      {value: "second", text: "Second"},
+      {value: "millisecond", text: "Millisecond"},
+      {value: "minute", text: "Minute"},
+      {value: "hour", text: "Hour"},
+      {value: "day", text: "Day"},
+      {value: "week", text: "Week"},
+      {value: "month", text: "Month"},
+      {value: "year", text: "Year"},
+    ],
+    length: [
+      {value: "millimeter", text: "Millimeter"},
+      {value: "centimeter", text: "Centimeter"},
+      {value: "meter", text: "Meter"},
+      {value: "kilometer", text: "Kilometer"},
+      {value: "inch", text: "Inch"},
+      {value: "foot", text: "Foot"},
+      {value: "mile", text: "Mile"},
+      {value: "yard", text: "Yard"},
+    ],
+    temperature: [
+      {value: "celsius", text: "Celsius"},
+      {value: "kelvin", text: "Kelvin"},
+      {value: "fahrenheit", text: "Fahrenheit"},
+    ],
+    weight: [
+      {value: "milligram", text: "Milligram"},
+      {value: "gram", text: "Gram"},
+      {value: "kilogram", text: "Kilogram"},
+      {value: "pound", text: "Pound"},
+      {value: "ounce", text: "Ounce"},
+      {value: "carrat", text: "Carrat"},
+    ],
+  }
+
   reverseBtn.addEventListener('click', function() {
       reverseBtn.classList.toggle('rotate');
 
@@ -37,6 +73,51 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.classList.add("button-selected");
     });
   });
+
+  // Dynamically injecting options in select tag
+  function updateUnits(selectId, unitType, selectedValue = null) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = "";
+    units[unitType].forEach((unit) => {
+      const option = document.createElement('option');
+      option.value = unit.value;
+      option.text = unit.text;
+
+      if(unit.value === selectedValue) {
+        option.selected = true;
+      }
+
+      select.appendChild(option);
+    } )
+  }
+
+  // Time button event
+  timeBtn.addEventListener('click', function() {
+    updateUnits("from-units-select", "time", "second");
+    updateUnits("to-units-select", "time", "minute");
+    convertTime();
+  })
+
+  // Length button event
+  lengthBtn.addEventListener('click', function() {
+    updateUnits("from-units-select", "length", "centimeter");
+    updateUnits("to-units-select", "length", "meter");
+    convertLength();
+  })
+
+  // Temperature button event
+  temperatureBtn.addEventListener('click', function() {
+    updateUnits("from-units-select", "temperature", "celsius");
+    updateUnits("to-units-select", "temperature", "kelvin");
+    convertTemperature();
+  })
+
+  // Weight button event
+  weightBtn.addEventListener('click', function() {
+    updateUnits("from-units-select", "weight", "gram");
+    updateUnits("to-units-select", "weight", "kilogram");
+    convertWeight();
+  })
 
 
   function convertTime() {
@@ -287,6 +368,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(() => {
     convertTime();
+    convertLength();
+    convertTemperature();
+    convertWeight();
   }, 100);
 
     
