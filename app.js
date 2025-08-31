@@ -583,6 +583,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
+  function convertTemperature() {
+
+    let toValue = parseFloat(input.value);
+
+    if(isNaN(toValue)) {
+      result = "Error";
+      toInput.classList.add("error");
+      toInput.textContent = result;
+    } else {
+      toInput.classList.remove("error");
+    }
+
+    // Celsius to all Units
+    if(fromSelect.value === "celsius" && toSelect.value === "celsius") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "celsius" && toSelect.value === "kelvin") {
+      result = toValue + 273.15;
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "celsius" && toSelect.value === "fahrenheit") {
+      result = toValue * (9/5) + 32;
+      toInput.value = parseFloat(result.toFixed(3));
+    }
+
+    // Kelvin to all Units
+    if(fromSelect.value === "kelvin" && toSelect.value === "celsius") {
+      result = toValue - 273.15;
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "kelvin" && toSelect.value === "kelvin") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "kelvin" && toSelect.value === "fahrenheit") {
+      result = (toValue - 273.15) * (9/5) + 32;
+      toInput.value = parseFloat(result.toFixed(3));
+    }
+
+    // Fahrenheit to all Units
+    if(fromSelect.value === "fahrenheit" && toSelect.value === "celsius") {
+      result = (toValue - 32) * (5/9);
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "fahrenheit" && toSelect.value === "kelvin") {
+      result = (toValue - 32) * (5/9) + 273.15;
+      toInput.value = parseFloat(result.toFixed(3));
+    } else if(fromSelect.value === "fahrenheit" && toSelect.value === "fahrenheit") {
+      result = toValue;
+      toInput.value = parseFloat(result.toFixed(3));
+    }
+
+  }
+
   // Prevent to type Alphabets and Operator in Input...
   input.addEventListener("keypress", function(e) {
 
@@ -603,6 +653,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(() => {
     convertLength();
+  }, 100);
+
+  setInterval(() => {
+    convertTemperature();
   }, 100);
 
     
